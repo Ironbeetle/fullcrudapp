@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+model Post {
+  id        String    @id @default(cuid()) 
+  option    String    @default("none") 
+  created   DateTime  @default(now())
+  updated   DateTime  @default(now()) @updatedAt
+  title     String?   
+  subtitle  String?
+  language  String?    
+  category  String?   
+  demographic String?  
+  topic     String?
+  context   String?
+  comment   String?   
+  vidurl    String?   
+  thumbnail String    @default("/thumbnails/profileimg.jpg")
+  thumbimg  String    @default("/thumbnails/profileimg.jpg")  
+  nation    String?
+}
