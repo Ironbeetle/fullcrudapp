@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+   previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -23,11 +24,13 @@ model Post {
   language  String?    
   category  String?   
   demographic String?  
-  topic     String?
+  topic     String?  
   context   String?
   comment   String?   
   vidurl    String?   
   thumbnail String    @default("/thumbnails/profileimg.jpg")
   thumbimg  String    @default("/thumbnails/profileimg.jpg")  
   nation    String?
+
+  
 }

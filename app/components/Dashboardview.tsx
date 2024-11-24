@@ -87,7 +87,7 @@ export default function page(props: PageProps) {
             <div className="backbtn">
                 <Link href="/pages/HomePage">
                     <div className="backbtn">
-                        <p>Back</p>
+                        <button>Back</button>
                     </div>
                 </Link>
             </div>

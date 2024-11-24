@@ -40,6 +40,24 @@ body {
   border-bottom-color: white;
 }
 
+button {
+  background-color: rgba(9, 118, 151, 0.7);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(154, 183, 192, 1);
+}
+
+
 .flexpanel {
   display: flex;
   flex-direction: column;

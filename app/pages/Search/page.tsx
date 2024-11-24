@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import Editorview from "../../components/Editorview";
+import View from "../../components/SearchBar";
 import Link from "next/link";
 const Page: React.FC = (props) => {
     if (!props) {
@@ -7,7 +8,7 @@ const Page: React.FC = (props) => {
     }
     return (
         <div className="pagescreen" style={{height:"100dvh"}}>
-            <Editorview/> 
+            <View onSearch={(query) => console.log(query)} />
         </div>
     );
 }

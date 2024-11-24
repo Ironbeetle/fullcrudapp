@@ -18,7 +18,7 @@ const Page: React.FC = async(props) => {
             <div className="backbtn">
                 <Link href="/pages/HomePage">
                     <div className="backbtn">
-                        <p>Back</p>
+                        <button>Back</button>
                     </div>
                 </Link>
             </div>

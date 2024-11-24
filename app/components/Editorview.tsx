@@ -41,7 +41,6 @@ export default function EditPage() {
    
   });
 
-
   const deleteMutation = useMutation({
     /**
      * Deletes an item with the given id.
@@ -122,11 +121,11 @@ export default function EditPage() {
   };
 
   return (
-    <>
+    <div className="pagescreen">
       <div className="backbtn">
           <Link href="/pages/HomePage">
               <div className="backbtn">
-                  <p>Back</p>
+                  <button>Back</button>
               </div>
           </Link>
       </div>
@@ -320,6 +319,9 @@ export default function EditPage() {
                   </div>
                   <div className='flexpanelR' style={{width:"100%", height:"100px"}}>
                   <button onClick={() => setEditingItem(item)}>Edit</button>
+                  <Link href={`/pages/DataEditor/${item.id}`}>
+                    <button>View</button>
+                  </Link>
                   <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
                   </div>
                 </div>
@@ -328,6 +330,6 @@ export default function EditPage() {
         </div>
 
       </div>
-    </>
+    </div>
   );
 }

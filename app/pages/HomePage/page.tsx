@@ -1,7 +1,5 @@
 import React from "react";
 import Homeview from "../../components/Homeview";
-
-
 const page: React.FC = (props) => {
     if (!props) {
         throw new Error("props is null or undefined");
@@ -12,5 +10,4 @@ const page: React.FC = (props) => {
         </div>
     );
 }
-
 export default page;

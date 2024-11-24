@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/lib/prisma';
 import { itemSchema } from '@/lib/validation';
 
-
 export async function getItems() {
   try{
     return prisma.post.findMany({ orderBy: { id: 'desc' } });
@@ -66,4 +65,17 @@ export async function deleteItem(id: string): Promise<void> {
     throw new Error('Post not found');
   }
   await prisma.post.delete({ where: { id } });
+}
+
+export async function searchPosts(query: string) {
+  const posts = await prisma.post.findMany({
+    where: {
+      OR: [
+        { title: { contains: query } },
+        { category: { contains: query } },
+        { topic: { contains: query } },
+      ],
+    },
+  });
+  return posts;
 }
