@@ -3,7 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useQuery} from '@tanstack/react-query';
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
 import Link from "next/link";
-export default function page(props){
+
+
+interface PageProps {
+        children?: React.ReactNode;
+    }
+
+export default function page(props: PageProps) {
    
     const [activeTab, setActiveTab] = useState(1);
    

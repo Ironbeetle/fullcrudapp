@@ -2,7 +2,12 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function page(props){
+
+interface PageProps {
+    children?: React.ReactNode
+}
+
+export default function page(props : PageProps) {
     
     return (
         <div className='pagescreen'> 

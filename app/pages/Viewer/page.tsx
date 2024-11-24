@@ -2,16 +2,17 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/lib/prisma";
 
-const db = new PrismaClient();
-async function page(props){
-    const video = await db.post.findMany({
-        orderBy: {
-            id: "desc",
-        }
-    });
-    const vidid = { id: video?.[0]?.id };
+const Page: React.FC = async(props) => {
+    if (!props) {
+        throw new Error("props is null or undefined");
+    }
+    
+    const video = await prisma.post.findMany(
+        { orderBy: { id: 'desc' } }
+    );
+   
     return(
         <div className="pagescreen">
             <div className="backbtn">
@@ -23,7 +24,7 @@ async function page(props){
             </div>
             <div className='pagescroll' style={{height:"100dvh"}}>
                 <div className="flexpanel">
-                    {video.map((vid) => (
+                    {video &&video.map((vid) => (
                         <div key={vid.id} style={{padding:"1rem"}}>
                             <div className="listpanel" style={{marginBottom:"2rem"}}>
                                 <div className="flexpanelR" style={{width:"100%"}}>
@@ -63,4 +64,4 @@ async function page(props){
         </div>
     )
 }
-export default page;
+export default Page;

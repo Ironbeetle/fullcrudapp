@@ -3,6 +3,17 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/lib/prisma';
 import { itemSchema } from '@/lib/validation';
 
+
+export async function getItems() {
+  try{
+    return prisma.post.findMany({ orderBy: { id: 'desc' } });
+  }catch(e){
+    console.log(e);
+  }finally{
+    await prisma.$disconnect();
+  }
+}
+
 export async function createItem(data: FormData) {
   const parsed = itemSchema.safeParse(Object.fromEntries(data));
   if (!parsed.success) {
@@ -55,14 +66,4 @@ export async function deleteItem(id: string): Promise<void> {
     throw new Error('Post not found');
   }
   await prisma.post.delete({ where: { id } });
-}
-
-export async function getItems() {
-  try{
-    return prisma.post.findMany({ orderBy: { id: 'desc' } });
-  }catch(e){
-    console.log(e);
-  }finally{
-    await prisma.$disconnect();
-  }
 }

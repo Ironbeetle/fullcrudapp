@@ -1,7 +1,7 @@
 'use client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
-import { createItem, updateItem, deleteItem, getItems } from '@/app/api/items/route';
+import { createItem, updateItem, deleteItem, getItems } from '@/app/api/items/actions';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -122,7 +122,7 @@ export default function EditPage() {
   };
 
   return (
-    <div className="pagescreen">
+    <>
       <div className="backbtn">
           <Link href="/pages/HomePage">
               <div className="backbtn">
@@ -328,6 +328,6 @@ export default function EditPage() {
         </div>
 
       </div>
-    </div>
+    </>
   );
 }
