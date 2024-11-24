@@ -319,7 +319,7 @@ export default function EditPage() {
                   </div>
                   <div className='flexpanelR' style={{width:"100%", height:"100px"}}>
                   <button onClick={() => setEditingItem(item)}>Edit</button>
-                  <Link href={`/pages/DataEditor/${item.id}`}>
+                  <Link href={`/pages/EditPreview/${item.id}`}>
                     <button>View</button>
                   </Link>
                   <button onClick={() => handleDeleteItem(item.id)}>Delete</button>

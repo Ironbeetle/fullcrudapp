@@ -2,7 +2,7 @@
 import Link from "next/link";
 import prisma from '@/lib/prisma';
 
-const page = async ({ params }: any) => {
+const page = async ({ params }: { params: { id: string } }) => {
     const itemid = params.id;
     const post = await prisma.post.findUnique({
         where: {
@@ -17,7 +17,7 @@ const page = async ({ params }: any) => {
     return (
         <div className="pagescreen">
             <div className="backbtn">
-                <Link href="/pages/Viewer">
+                <Link href="/pages/DataEditor">
                     <div className="backbtn">
                         <button>Back</button>
                     </div>
