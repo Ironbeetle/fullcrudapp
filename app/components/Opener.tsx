@@ -25,7 +25,7 @@ const Openlogo = () => {
                     className='btn-link'
                 >
                     <div className='apptextp'>
-                        <p>Enter</p>
+                        <button>Enter</button>
                     </div>
                 </Link>
                 </div>
