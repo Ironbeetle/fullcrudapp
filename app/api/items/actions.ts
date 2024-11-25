@@ -79,3 +79,4 @@ export async function searchPosts(query: string) {
   });
   return posts;
 }
+

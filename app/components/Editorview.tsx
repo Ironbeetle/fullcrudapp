@@ -203,11 +203,10 @@ export default function EditPage() {
                  <option value="sacrednature">Sacred Nature</option>
                 <option value="sacredteachings">Sacred Teachings</option>
                 <option value="ceremony">Ceremony</option>
-                <option value="wellbeing">Well Being</option>
                 <option value="naturallaws">Natural Laws</option>
                 <option value="socialmanners">Social Etiquette</option>
                 <option value="socialroles">Social Roles</option>
-                <option value="culture">Culture</option>
+              
               </select>
             </div>
             <div className='itempanel row1fr1fr'>
