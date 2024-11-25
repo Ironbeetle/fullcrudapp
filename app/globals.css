@@ -231,3 +231,12 @@ button:hover {
   font-size: 1rem;
   color: white;
 }
+
+.backbtnr{
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+  color: white;
+}

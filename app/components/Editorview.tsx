@@ -286,45 +286,45 @@ export default function EditPage() {
         {/* right panel start */}
         <div className='flexpanel'>
           <div className="scrollpanel">
-              {items.map((item: any) => (
-                <div className='itempanel' key={item.id}>
-                  <div className='row1fr1fr'>
-                    <div className='flexpanel'>
-                      <Image 
-                          src={item.thumbnail} 
-                          alt="teacherimg" 
-                          width={100} 
-                          height={100}
-                          style={{justifySelf:"flex-end"}}
-                      />
-                    </div>
-                    <div className='flexpanel'>
-                      <Image 
-                          src={item.thumbimg} 
-                          alt="iconimg" 
-                          width={100} 
-                          height={100}
-                          style={{justifySelf:"flex-end"}}
-                      />
-                    </div>
+            {items.map((item: any) => (
+              <div className='itempanel' key={item.id}>
+                <div className='row1fr1fr'>
+                  <div className='flexpanel'>
+                    <Image 
+                        src={item.thumbnail} 
+                        alt="teacherimg" 
+                        width={100} 
+                        height={100}
+                        style={{justifySelf:"flex-end"}}
+                    />
                   </div>
-                  <div className='row1fr1fr'>
-                  <h3>Title:{item.title}</h3>
-                  <h3>Sub-Title:{item.subtitle}</h3>
-                  <h3>Category:{item.category}</h3>
-                  <h3>Topic:{item.topic}</h3>
-                  <h3>Context:{item.context}</h3>
-                  <h3>Comment:{item.comment}</h3>
-                  </div>
-                  <div className='flexpanelR' style={{width:"100%", height:"100px"}}>
-                  <button onClick={() => setEditingItem(item)}>Edit</button>
-                  <Link href={`/pages/EditPreview/${item.id}`}>
-                    <button>View</button>
-                  </Link>
-                  <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
+                  <div className='flexpanel'>
+                    <Image 
+                        src={item.thumbimg} 
+                        alt="iconimg" 
+                        width={100} 
+                        height={100}
+                        style={{justifySelf:"flex-end"}}
+                    />
                   </div>
                 </div>
-              ))}
+                <div className='row1fr1fr'>
+                <h3>Title:{item.title}</h3>
+                <h3>Sub-Title:{item.subtitle}</h3>
+                <h3>Category:{item.category}</h3>
+                <h3>Topic:{item.topic}</h3>
+                <h3>Context:{item.context}</h3>
+                <h3>Comment:{item.comment}</h3>
+                </div>
+                <div className='flexpanelR' style={{width:"100%", height:"100px"}}>
+                <button onClick={() => setEditingItem(item)}>Edit</button>
+                <Link href={`/pages/Viewer/${item.id}`}>
+                  <button>View</button>
+                </Link>
+                <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
