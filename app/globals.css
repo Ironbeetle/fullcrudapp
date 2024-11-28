@@ -78,7 +78,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .toppanel {
@@ -197,6 +197,11 @@ button:hover {
 .apptextp{
   font-size: 1.2rem;
   color: whitesmoke;
+}
+
+.apptxth1{
+  font-size: 2rem;
+  color: yellow;
 }
 
 .btn-link{

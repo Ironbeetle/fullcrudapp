@@ -1,5 +1,5 @@
 'use server';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { itemSchema } from '@/lib/validation';
 
@@ -80,3 +80,52 @@ export async function searchPosts(query: string) {
   return posts;
 }
 
+type ValueCount = {
+  topic: string;
+  count: number;
+};
+
+export async function countTopic() {
+  try {
+    const valueCounts: ValueCount[] = await prisma.$queryRaw`
+      SELECT "topic", COUNT(*)
+      FROM "Post"
+      GROUP BY "topic"
+    `;
+    return valueCounts.map((item: ValueCount) => ({
+      topic: item.topic,
+      count: Number(item.count), // Convert BigInt to number
+    }));
+    return valueCounts;
+  } catch (error) {
+    console.error('Error fetching value counts:', error);
+    throw new Error('Failed to fetch value counts');
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+type ValueCountC = {
+  category: string;
+  count: number;
+};
+
+export async function countCategory() {
+  try {
+    const valueCountsC: ValueCountC[] = await prisma.$queryRaw`
+      SELECT "category", COUNT(*)
+      FROM "Post"
+      GROUP BY "category"
+    `;
+    return valueCountsC.map((item2: ValueCountC) => ({
+      category: item2.category,
+      count: Number(item2.count), // Convert BigInt to number
+    }));
+    return valueCountsC;
+  } catch (error) {
+    console.error('Error fetching value counts:', error);
+    throw new Error('Failed to fetch value counts');
+  } finally {
+    await prisma.$disconnect();
+  }
+}
