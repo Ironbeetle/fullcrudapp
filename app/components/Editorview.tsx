@@ -175,8 +175,8 @@ export default function EditPage() {
               >
                 <option value="sacred">Sacred</option>
                 <option value="natlaws">Natural Laws</option>
-                <option value="ceremony">Ceremony</option>
-                <option value="land">The land</option>
+                {/* <option value="ceremony">Ceremony</option>
+                <option value="land">The land</option> */}
               </select>
             </div>
             <div className='itempanel row1fr1fr'>
